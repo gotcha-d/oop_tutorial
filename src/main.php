@@ -29,29 +29,29 @@ class Main
         if ($leftHand === 0) {
             // Goo
             if ($rightHand === 0 ) {
-                return 0;
+                return "draw";
             } elseif ($rightHand === 1) {
-                return 1;
+                return "win";
             } else {
-                return -1;
+                return "lose";
             }
         } elseif ($leftHand === 1) {
             // Choki
             if ($rightHand === 0 ) {
-                return -1;
+                return "lose";
             } elseif ($rightHand === 1) {
-                return 0;
+                return "draw";
             } else {
-                return 1;
+                return "win";
             }
         } else {
             // Par
             if ($rightHand === 0 ) {
-                return 1;
+                return "win";
             } elseif ($rightHand === 1) {
-                return -1;
+                return "lose";
             } else {
-                return 0;
+                return "draw";
             }
         }
     }
@@ -64,9 +64,9 @@ class Main
      */
     public function showResult($result) {
         
-        if ($result === 1) {
+        if ($result === "win") {
             echo '勝利' . PHP_EOL;
-        } elseif ($result === -1) {
+        } elseif ($result === "lose") {
             echo '敗北' . PHP_EOL;
         } else {
             echo '引き分け' . PHP_EOL;
