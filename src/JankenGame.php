@@ -3,8 +3,8 @@
 class JankenGame
 {
     var $display;
-    
-    public function __construct($display) {
+
+    public function __construct(DisplayInterface $display) {
         $this->display = $display;
     }
     /**
@@ -18,7 +18,7 @@ class JankenGame
      */
     public function play(int $leftHand, int $rightHand) {
         $result = $this->judge($leftHand, $rightHand);
-        $this->display->showResult($result);
+        $this->display->show($result);
     }
 
     /**

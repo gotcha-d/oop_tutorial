@@ -1,8 +1,11 @@
 <?php
 
-class EnglishDisplay {
+include_once 'DisplayInterface.php';
 
-    public function showResult($result) {
+class EnglishDisplay implements DisplayInterface {
+
+    public function show($result) : void
+    {
         if ($result === "win") {
             echo 'WIN' . PHP_EOL;
         } elseif ($result === "lose") {
