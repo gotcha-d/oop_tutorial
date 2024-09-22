@@ -1,5 +1,7 @@
 <?php
 
+include 'JapaneseDisplay.php';
+include 'EnglishDisplay.php';
 class JankenGame
 {
 
@@ -62,24 +64,14 @@ class JankenGame
      * @param [type] $result
      * @return void
      */
-    public function showResult($result) {
+    public function showResult($result, $lang) {
 
-        if ($lang = 'ja') {
-            if ($result === "win") {
-                echo '勝利' . PHP_EOL;
-            } elseif ($result === "lose") {
-                echo '敗北' . PHP_EOL;
-            } else {
-                echo '引き分け' . PHP_EOL;
-            }
+        if ($lang == 'ja') {
+            $display = new JapaneseDisplay();
+            $display->showResult($result);
         } else {
-            if ($result === "win") {
-                echo 'WIN' . PHP_EOL;
-            } elseif ($result === "lose") {
-                echo 'LOSW' . PHP_EOL;
-            } else {
-                echo 'DRAW' . PHP_EOL;
-            }
+            $display = new EnglishDisplay();
+            $display->showResult($result);
         }
     }
 }
