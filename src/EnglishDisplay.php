@@ -4,14 +4,15 @@ include_once 'DisplayInterface.php';
 
 class EnglishDisplay implements DisplayInterface {
 
-    public function show($result) : void
-    {
-        if ($result === "win") {
-            echo 'WIN' . PHP_EOL;
-        } elseif ($result === "lose") {
-            echo 'LOSW' . PHP_EOL;
-        } else {
-            echo 'DRAW' . PHP_EOL;
-        }
+    public function win(): void {
+        echo 'WIN' . PHP_EOL;
+    }
+
+    public function lose(): void {
+        echo 'LOSE' . PHP_EOL;
+    }
+
+    public function draw(): void {
+        echo 'DRAW' . PHP_EOL;
     }
 }

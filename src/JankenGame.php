@@ -18,7 +18,7 @@ class JankenGame
      */
     public function play(int $leftHand, int $rightHand) {
         $result = $this->judge($leftHand, $rightHand);
-        $this->display->show($result);
+        $this->displayResult($result);
     }
 
     /**
@@ -57,6 +57,16 @@ class JankenGame
             } else {
                 return "draw";
             }
+        }
+    }
+
+    private function displayResult($result) {
+        if ($result === 1) {
+            $this->display->win();
+        } elseif ($result === 0) {
+            $this->display->draw();
+        } else {
+            $this->display->lose();
         }
     }
 }

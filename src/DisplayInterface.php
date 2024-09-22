@@ -2,5 +2,7 @@
 
 interface DisplayInterface
 {
-    public function show($result): void;
+    public function win(): void;
+    public function lose(): void;
+    public function draw(): void;
 }
