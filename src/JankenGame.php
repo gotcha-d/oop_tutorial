@@ -1,10 +1,12 @@
 <?php
 
-include 'JapaneseDisplay.php';
-include 'EnglishDisplay.php';
 class JankenGame
 {
-
+    var $display;
+    
+    public function __construct($display) {
+        $this->display = $display;
+    }
     /**
      * Undocumented function
      * 
@@ -14,10 +16,9 @@ class JankenGame
      * @param integer $rightHand
      * @return void
      */
-    public function play(int $leftHand, int $rightHand, string $lang) {
+    public function play(int $leftHand, int $rightHand) {
         $result = $this->judge($leftHand, $rightHand);
-        $display = $this->getDisplay($lang);
-        $display->showResult($result);
+        $this->display->showResult($result);
     }
 
     /**
@@ -56,20 +57,6 @@ class JankenGame
             } else {
                 return "draw";
             }
-        }
-    }
-
-    /**
-     * Undocumented function
-     *
-     * @param [type] $lang
-     * @return void
-     */
-    private function getDisplay($lang) {
-        if ($lang == 'ja') {
-            return new JapaneseDisplay();
-        } else {
-            return new EnglishDisplay();
         }
     }
 }

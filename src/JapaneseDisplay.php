@@ -9,5 +9,5 @@ class JapaneseDisplay {
         } else {
             echo '引き分け' . PHP_EOL;
         }
-    }    
+    }
 }
