@@ -12,9 +12,9 @@ class JankenGame
      * @param integer $rightHand
      * @return void
      */
-    public function play(int $leftHand, int $rightHand) {
+    public function play(int $leftHand, int $rightHand, string $lang) {
         $result = $this->judge($leftHand, $rightHand);
-        $this->showResult($result);
+        $this->showResult($result, $lang);
     }
 
     /**
@@ -63,13 +63,23 @@ class JankenGame
      * @return void
      */
     public function showResult($result) {
-        
-        if ($result === "win") {
-            echo '勝利' . PHP_EOL;
-        } elseif ($result === "lose") {
-            echo '敗北' . PHP_EOL;
+
+        if ($lang = 'ja') {
+            if ($result === "win") {
+                echo '勝利' . PHP_EOL;
+            } elseif ($result === "lose") {
+                echo '敗北' . PHP_EOL;
+            } else {
+                echo '引き分け' . PHP_EOL;
+            }
         } else {
-            echo '引き分け' . PHP_EOL;
+            if ($result === "win") {
+                echo 'WIN' . PHP_EOL;
+            } elseif ($result === "lose") {
+                echo 'LOSW' . PHP_EOL;
+            } else {
+                echo 'DRAW' . PHP_EOL;
+            }
         }
     }
 }
