@@ -68,11 +68,10 @@ class JankenGame
 
         if ($lang == 'ja') {
             $display = new JapaneseDisplay();
-            $display->showResult($result);
         } else {
             $display = new EnglishDisplay();
-            $display->showResult($result);
         }
+        $display->showResult($result);
     }
 }
 
