@@ -16,7 +16,8 @@ class JankenGame
      */
     public function play(int $leftHand, int $rightHand, string $lang) {
         $result = $this->judge($leftHand, $rightHand);
-        $this->showResult($result, $lang);
+        $display = $this->getDisplay($lang);
+        $display->showResult($result);
     }
 
     /**
@@ -59,19 +60,17 @@ class JankenGame
     }
 
     /**
-     * 結果を表示する
+     * Undocumented function
      *
-     * @param [type] $result
+     * @param [type] $lang
      * @return void
      */
-    public function showResult($result, $lang) {
-
+    private function getDisplay($lang) {
         if ($lang == 'ja') {
-            $display = new JapaneseDisplay();
+            return new JapaneseDisplay();
         } else {
-            $display = new EnglishDisplay();
+            return new EnglishDisplay();
         }
-        $display->showResult($result);
     }
 }
 
