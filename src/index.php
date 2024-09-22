@@ -1,6 +1,6 @@
 <?php
 
-include 'main.php';
+include 'JankenGame.php';
 
-$main = new Main();
+$main = new JankenGame();
 $main->play(1, 0);
